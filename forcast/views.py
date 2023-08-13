@@ -9,6 +9,7 @@ import pandas as pd
 import requests
 import yfinance as yf
 import datetime
+import json
 
 def forcast(request):
     if request.method == "POST":
@@ -41,7 +42,9 @@ def forcast(request):
 
             context = {
                 'form': form,
-                'predictions': zip(predicted_dates, predictions)
+            'predictions': zip(predicted_dates, predictions),
+            'predicted_dates_json': json.dumps(predicted_dates),
+            'predicted_prices_json': json.dumps([float(price[0]) for price in predictions])
             }
             return render(request, 'forcast/forcast.html', context)
     else:
@@ -53,41 +56,6 @@ def get_yahoo_finance_data(symbol, start_date, end_date):
     return stock_data
 
 
-# def forcast(request):
-#     if request.method == "POST":
-#         form = StockSearchForm(request.POST)
-#         if form.is_valid():
-#             symbol = form.cleaned_data['symbol']
-#             data = get_alpha_vantage_data(symbol, 'LAMH45CP1M7N0GKH')  # API 키 추가
-#             data = data['2021-01-01':'2023-08-13']
-
-#             # 데이터 전처리
-#             features = data[['4. close']]
-#             features.columns = ['Close']
-#             scaler = MinMaxScaler(feature_range=(0,1))
-#             scaled_data = scaler.fit_transform(features)
-
-#             # 미래 주가 예측
-#             future_days = 30
-#             predictions = [scaled_data[-1]]
-#             current_data = scaled_data[-60:].tolist()
-#             for _ in range(future_days):
-#                 predicted_value = model.predict(np.array(current_data).reshape(1, 60, 1))
-#                 current_data.append(predicted_value[0])
-#                 current_data = current_data[1:]
-#                 predictions.append(predicted_value[0])
-
-#             predictions = scaler.inverse_transform(np.array(predictions).reshape(-1, 1))
-#             predicted_dates = [str((datetime.datetime.now() + datetime.timedelta(days=i)).date()) for i in range(future_days)]
-
-#             context = {
-#                 'form': form,
-#                 'predictions': zip(predicted_dates, predictions)
-#             }
-#             return render(request, 'forcast/forcast.html', context)
-#     else:
-#         form = StockSearchForm()
-#     return render(request, 'forcast/forcast.html', {'form': form})
 
 
 def get_alpha_vantage_data(symbol, api_key):
