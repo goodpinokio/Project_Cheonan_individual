@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%  block head_title %}Blog-INFO{% endblock %}</title>
+
+    <link href="{% static 'blog/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'single_pages/css/landing.css' %}" media="screen">
+
+    <script src="https://kit.fontawesome.com/89a12d4a7e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    {% include 'blog/navbar.html'%}
+
+    <section>
+        {% if user.is_authenticated %}
+<div class="container mt-4">
+    <div class="col-lg-8">
+        <h1>안녕하세요 {{ user }}님</h1>
+    </div>
+    <div>
+        <h2>{{ user }}이 작성한 글</h2>
+    </div>
+</div>
+{% for post in page_obj %}
+<div class="card mt-1">
+    <div class="card-body">
+        <h6><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-dark">{{ post.title }}</a></h6>
+        <span class="badge badge-pill badge-light float-right">
+            {{ post.author.username }}
+            &nbsp;
+            &nbsp;
+            {{ post.created_at }}
+        </span>
+    </div>
+</div>
+{% endfor %}
+
+{% else %}
+<div> 
+    <h1> 로그인하세요 </h1>
+</div>
+        {% endif %}
+
+
+<!-- Pagination -->
+{% if page_obj.has_other_pages %}
+<nav aria-label="Pagination">
+    <ul class="pagination justify-content-center my-4">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+        </li>
+        {% endif %}
+
+        <!-- Page numbers -->
+        {% for i in page_obj.paginator.page_range %}
+        {% if i == page_obj.number %}
+        <li class="page-item active">
+            <span class="page-link">{{ i }}</span>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">Next</span>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+</section>
+
+
+    <div class="fixed-bottom">
+        {% include 'blog/footer.html' %}
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+            integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+            crossorigin="anonymous"></script>
+</body>
+</html>
