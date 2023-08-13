@@ -3,15 +3,15 @@
  <!-- Responsive navbar-->
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="/">Start Bootstrap</a>
+        <a class="navbar-brand" href="/">Stock Price Prediction</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="/about_me/">About me</a></li>
-                <li class="nav-item"><a class="nav-link" href="/baemin/">Baemin</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Your Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">홈</a></li>
+                <li class="nav-item"><a class="nav-link" href="/blog/">주식토론</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about_me/">내가 작성한 글</a></li>
+                <li class="nav-item"><a class="nav-link" href="/forcast/">주가예측</a></li>
+\
             </ul>
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
@@ -21,12 +21,12 @@
                     {{ user.username }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="/accounts/logout/">Log Out</a>
+                    <a class="dropdown-item" href="/accounts/logout/">로그아웃</a>
                 </div>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Log In</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">로그인</a>
                 </li>
                 {% endif %}
             </ul>
@@ -42,7 +42,7 @@
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+        <h5 class="modal-title" id="loginModalLabel">로그인</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -51,20 +51,20 @@
             <div class="row">
                 <div class="col-md-6">
                     <a role="button" class="btn btn-outline-dark btn-block btn-sm"
-                    href="{% provider_login_url 'google' %}"><i class="fab fa-google"></i>&nbsp;&nbsp; Log in with Google</a>
+                    href="{% provider_login_url 'google' %}"><i class="fab fa-google"></i>&nbsp;&nbsp; 구글로 로그인하기</a>
                     <a role="button" class="btn btn-outline-dark btn-block btn-sm"
-                    href="/accounts/login/"><i class="fab fa-envelope"></i>&nbsp;&nbsp; Log in with Username</a>
+                    href="/accounts/login/"><i class="fab fa-envelope"></i>&nbsp;&nbsp; 로그인하기</a>
                    
                  </div>
                  <div class="col-md-6">
                     <a role="button" class="btn btn-outline-dark btn-block btn-sm"
-                    href="/accounts/signup"><i class="fab fa-envelope"></i>&nbsp;&nbsp; Sign Up with E-mail</a>
+                    href="/accounts/signup"><i class="fab fa-envelope"></i>&nbsp;&nbsp; 회원가입</a>
                    
                  </div>
             </div>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
        </div>
     </div>
     </div>

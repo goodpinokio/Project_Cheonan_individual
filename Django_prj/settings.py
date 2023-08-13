@@ -30,10 +30,12 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     
+    
     'blog',
     'single_pages',
     'practice',
     'baemin',
+    'forcast',
  
     
     'django.contrib.sites',

@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       
-        <title>{% block head_title %}Blog{% endblock %}</title>
+        <title>{% block head_title %}토론방{% endblock %}</title>
         
 
         <link href="{% static 'blog/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
@@ -31,7 +31,7 @@
         <header class="py-5 bg-light border-bottom mb-4">
             <div class="container">
                 <div class="text-center my-5" id="main-area">
-                    <h1 class="fw-bolder">Welcome to Blog Home!</h1>
+                    <h1 class="fw-bolder">주식 토론방에 오신걸 환영합니다.</h1>
                 </div>
             </div>
         </header>
@@ -49,17 +49,17 @@
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Search</div>
+                        <div class="card-header">검색</div>
                         <div class="card-body">
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" id="search-input"/>
-                                <button class="btn btn-primary" id="button-search" type="button" onclick="searchPost();">Go!</button>
+                                <input class="form-control" type="text" placeholder="단어를 입력해주세요" aria-label="Enter search term..." aria-describedby="button-search" id="search-input"/>
+                                <button class="btn btn-primary" id="button-search" type="button" onclick="searchPost();">검색</button>
                             </div>
                         </div>
                     </div>
                     <!-- Categories widget-->
                     <div class="card mb-4" id="categories-card">
-                        <div class="card-header">Categories</div>
+                        <div class="card-header">카테고리</div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -79,8 +79,13 @@
                     </div>
                     <!-- Side widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                        <div class="card-header">규칙</div>
+                        <div class="card-body">1. 주식 관련된 내용만 게시할 것.<br>
+                            2. 허위 정보나 미확인 정보를 퍼트리지 않을 것. 정보를 공유할 때는 출처를 명시할 것.<br>
+                            3. 다른 사용자나 기업을 비방하거나 무례하게 대하지 않을 것.<br>
+                            4. 스팸이나 광고성 게시물은 엄격히 금지됩니다.<br>
+                            5. 주식 거래 결정은 개인의 책임입니다. 다른 사용자의 글을 토대로 투자 결정을 하더라도 그 결과에 대한 책임은 글쓴이가 아닌 본인에게 있습니다.<br>
+                            </div>
                     </div>
                 </div>
             </div>

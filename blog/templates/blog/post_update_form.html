@@ -1,10 +1,10 @@
 {% extends 'blog/base_full_width.html' %}
 
 {% load crispy_forms_tags %}
-{% block head_title %}Edit Post - Blog{% endblock %}
+{% block head_title %}글 수정 - 토론방{% endblock %}
 
 {% block main_area %}
-<h1>Edit Post</h1>
+<h1>글 수정</h1>
 <hr>
 <form method="post" enctype="multipart/form-data">
         
@@ -17,6 +17,6 @@
         </div>
         <br>
        
-    <button type="submit" class="btn btn-primary float-right"> Submit</button>
+    <button type="submit" class="btn btn-primary float-right">수정하기</button>
 </form>
 {% endblock %}

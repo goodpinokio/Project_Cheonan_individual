@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alpha Vantage Data</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Close</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in daily_data %}
+            <tr>
+                <td>{{ item.date }}</td>
+                <td>{{ item.close }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+</body>
+</html>

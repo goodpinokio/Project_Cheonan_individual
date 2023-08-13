@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{%  block head_title %}Blog-INFO{% endblock %}</title>
+    <title>{%  block head_title %}주식예측 및 토론 - 홈페이지{% endblock %}</title>
 
     <link href="{% static 'blog/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'single_pages/css/landing.css' %}" media="screen">
@@ -20,14 +20,17 @@
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-lg-6">
-                <h1 class="mt-5">Do It Dkango</h1>
+                <h1 class="mt-5">주식 예측 및 토론방</h1>
                 <p>
-                    파이썬 진영의 가장 대표적인 웹프레임워크 중 하나인 django를 이용해서
-                    여러분만의 블로그 사이트를 만들어 보세요.
+                    "우리의 주식 예측 및 토론방은 주식 시장의 다양한 이슈와 전망을 깊이 있게 탐구하고, 분석하는 곳입니다. <br>이곳에서는 각종 주식 정보와 예측, 그리고 다양한 의견을 공유하며 서로의 지식을 확장해 나갈 수 있습니다.<br> 투자에 관한 결정을 내리기 전에, 다양한 정보와 의견을 청취하고, 서로의 생각을 나누어 보세요.<br> 우리의 토론방에서는 각자의 경험과 지식을 바탕으로 풍부한 토론이 이루어지며, 이를 통해 더욱 높은 투자 성과를 이룰 수 있습니다.<br> 함께 합심하여 성장하는 주식 커뮤니티가 되기를 바랍니다."
                 </p>
+                <div>
+                    <img style="width: 500px; height: 400px;"
+                    src="https://previews.123rf.com/images/paylessimages/paylessimages1501/paylessimages150169829/49437762-%EC%A3%BC%EA%B0%80-%EA%B7%B8%EB%9E%98%ED%94%84.jpg" alt="주식 사진">
+                </div>
             </div>
             <div class="col-lg-5 mt-5">
-                <h2>Blog - Recent posts</h2>
+                <h2>주식 토론방 - 최신글</h2>
                 {% for post in recent_posts %}
             
                 <div class="card mt-1">

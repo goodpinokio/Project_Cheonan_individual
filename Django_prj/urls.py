@@ -9,7 +9,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('',include('single_pages.urls')),
     path('practice/',include('practice.urls')),
-    
+    path('forcast/',include('forcast.urls')),
     path('baemin/',include('baemin.urls')),
 ]
 
